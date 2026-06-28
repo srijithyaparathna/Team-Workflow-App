@@ -118,4 +118,4 @@ This app deploys as two separate pieces:
 - **Backend**: any Node host with a reachable MySQL instance (e.g. an EC2 instance running Node + MySQL, or Node host + managed MySQL/RDS). Run the same migration + `.env` setup as local, then start with a process manager (e.g. `pm2`) behind a reverse proxy (e.g. Nginx) for HTTPS.
 - **Frontend**: any static host (Vercel, Netlify, or an S3/CloudFront-style setup) — `npm run build` produces a static `dist/` folder. Set `VITE_API_URL` to your deployed backend's URL at build time.
 
-Update the **Live demo** link at the top of this README once deployed.
+
