@@ -1,0 +1,18 @@
+/*
+ * Tailwind v4 — import theme + utilities only, skipping preflight so it
+ * doesn't fight MUI's <CssBaseline /> reset. Use Tailwind for utility
+ * classes; MUI components keep their own styling.
+ */
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}

@@ -1,0 +1,156 @@
+/* Modern calendar look: flat borders, soft today highlight, dot-style events. */
+.modern-calendar {
+  --fc-border-color: #eef1f6;
+  --fc-today-bg-color: #eef2ff;
+  --fc-page-bg-color: #ffffff;
+  --fc-neutral-bg-color: #ffffff;
+  --fc-now-indicator-color: #ef4444;
+}
+
+.modern-calendar .fc {
+  font-family: inherit;
+}
+
+.modern-calendar .fc-theme-standard td,
+.modern-calendar .fc-theme-standard th {
+  border-color: var(--fc-border-color);
+}
+
+.modern-calendar .fc-col-header-cell {
+  padding: 10px 0;
+  border-left: none;
+  border-right: none;
+}
+
+.modern-calendar .fc-col-header-cell-cushion {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+.modern-calendar .fc-daygrid-day-frame {
+  padding: 4px;
+}
+
+.modern-calendar .fc-daygrid-day-top {
+  justify-content: flex-end;
+  padding: 6px;
+}
+
+.modern-calendar .fc-daygrid-day-number {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  text-decoration: none;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.modern-calendar .fc-day-today .fc-daygrid-day-number {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+.modern-calendar .fc-daygrid-day.fc-day-today {
+  background: var(--fc-today-bg-color);
+}
+
+/* Keep the lavender "today" tint to the month grid only — in week/day view it
+   would otherwise wash the entire visible column since the whole view is "today". */
+.modern-calendar .fc-timegrid-col.fc-day-today {
+  background: var(--fc-page-bg-color);
+}
+
+.modern-calendar .fc-timegrid-col-frame .fc-timegrid-now-indicator-container {
+  background: transparent;
+}
+
+/* Past dates are disabled for creating tasks — gray them out and show a
+   "not allowed" cursor, but keep any existing event on that day fully
+   legible and clickable (tasks already there can still be viewed/edited). */
+.modern-calendar .fc-day-past .fc-daygrid-day-frame,
+.modern-calendar .fc-timegrid-col.fc-day-past {
+  background-color: #f8fafc;
+  cursor: not-allowed;
+}
+
+.modern-calendar .fc-day-past .fc-daygrid-day-number {
+  color: #cbd5e1;
+}
+
+.modern-calendar .fc-day-past .fc-daygrid-day-events,
+.modern-calendar .fc-day-past .fc-event {
+  cursor: pointer;
+}
+
+.modern-calendar .fc-scrollgrid {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.modern-calendar .fc-scrollgrid-section-header > * {
+  border-bottom: 1px solid var(--fc-border-color);
+}
+
+.modern-calendar .fc-daygrid-day-events {
+  margin-top: 2px;
+}
+
+.modern-calendar .fc-daygrid-more-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: #4f46e5;
+}
+
+/* Dot-style event row, similar to compact task-list calendars */
+.modern-calendar .modern-event {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 4px;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.modern-calendar .modern-event .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.modern-calendar .modern-event .title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.modern-calendar .modern-event .time {
+  font-size: 11px;
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.modern-calendar .fc-timegrid-slot-label-cushion,
+.modern-calendar .fc-timegrid-axis-cushion {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.modern-calendar .fc-timegrid-event .modern-event .title {
+  color: inherit;
+}
