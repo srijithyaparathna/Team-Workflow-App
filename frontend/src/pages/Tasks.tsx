@@ -296,12 +296,14 @@ export default function Tasks() {
             </TableHead>
            <TableBody>
   {paged.map((task) => (
-    <TableRow key={task.id} hover>
+    <TableRow
+      key={task.id}
+      hover
+      sx={{ cursor: 'pointer' }}
+      onClick={() => navigate(`/tasks/${task.id}`)}
+    >
 
-      <TableCell
-        sx={{ cursor: 'pointer', fontWeight: 600 }}
-        onClick={() => navigate(`/tasks/${task.id}`)}
-      >
+      <TableCell sx={{ fontWeight: 600 }}>
         {task.title}
       </TableCell>
 
@@ -313,7 +315,7 @@ export default function Tasks() {
         </TableCell>
       )}
 
-      <TableCell>
+      <TableCell onClick={(e) => e.stopPropagation()}>
         <EditablePriorityChip
           priority={task.priority}
           disabled={!canEdit(task)}
@@ -321,7 +323,7 @@ export default function Tasks() {
         />
       </TableCell>
 
-      <TableCell>
+      <TableCell onClick={(e) => e.stopPropagation()}>
         <EditableStatusChip
           status={task.status}
           disabled={!canEdit(task)}
@@ -333,7 +335,7 @@ export default function Tasks() {
         {formatDateTime(task.due_date)}
       </TableCell>
 
-      <TableCell align="right">
+      <TableCell align="right" onClick={(e) => e.stopPropagation()}>
         {canEdit(task) && (
           <>
             <Tooltip title="Edit">
